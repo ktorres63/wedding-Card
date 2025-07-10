@@ -1,4 +1,5 @@
 ---
+export const prerender = false
 
 import Layout from "../../layouts/Layout.astro";
 import Guest from "../../components/Guest.astro";
@@ -11,7 +12,6 @@ const segments = Astro.params.params?.split("/") ?? [];
 const nombre = decodeURIComponent(segments[0] ?? "Invitado");
 const pases = decodeURIComponent(segments[1] ?? "1");
 
-export const prerender = false
 
 ---
 
