@@ -1,44 +1,39 @@
 ---
 import WaveTop from "../components/WaveTop.astro";
 import WaveBottom from "./WaveBottom.astro";
+
+const { nombre, pases } = Astro.props;
 ---
 
-<section
-  class="relative text-center pt-[80px] pb-[80px] bg-background text-white"
-  id="guest-section"
->
+<section class="relative text-center pt-[80px] pb-[80px] bg-background text-white" id="guest-section">
   <!-- Ola superior -->
   <div class="absolute top-0 left-0 w-full leading-[0] text-primary">
     <WaveTop />
   </div>
 
-
   <!-- Contenido -->
   <div class="bg-primary pt-5">
-    <p>Prepara tus maletas y acompañanos en esta aventura <span class="block font-bold">¿Te unes?</span></p>
+    <p>Prepara tus maletas y acompáñanos en esta aventura <span class="block font-bold">¿Te unes?</span></p>
+
     <div class="flex items-center justify-center my-8 w-full px-5">
       <div class="flex-grow border-t border-gray-300"></div>
-    
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="mx-4 w-6 h-6 text-background fill-current"
-        viewBox="0 0 24 24"
-      >
+
+      <svg xmlns="http://www.w3.org/2000/svg" class="mx-4 w-6 h-6 text-background fill-current" viewBox="0 0 24 24">
         <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 
           2 5.42 4.42 3 7.5 3c1.74 0 3.41 0.81 
           4.5 2.09C13.09 3.81 14.76 3 16.5 3 
           19.58 3 22 5.42 22 8.5c0 3.78-3.4 
           6.86-8.55 11.54L12 21.35z"/>
       </svg>
-    
+
       <div class="flex-grow border-t border-gray-300"></div>
     </div>
-    
-    <div id="guest-content" class="relative z-10">
-      <h2 class="text-3xl font-bold mb-4">You're invited!</h2>
-      <p class="text-xl">
-        Enter your name in the link to receive a personal invitation.
-      </p>
+
+    <div class="relative z-10">
+      <h2 class="text-5xl mb-4 font-greatVibes text-background">{nombre},</h2>
+      <p class="text-xl mb-2">Hemos reservado:</p>
+      <p class="text-5xl font-greatVibes text-background">{pases} pase(s)</p>
+      <p class="text-xl">en su honor</p>
     </div>
   </div>
 
@@ -47,24 +42,3 @@ import WaveBottom from "./WaveBottom.astro";
     <WaveBottom />
   </div>
 </section>
-
-
-<script is:inline>
-  window.addEventListener("DOMContentLoaded", () => {
-    const params = new URLSearchParams(window.location.search);
-    const name = params.get("nombre");
-    const pases = params.get("pases");
-
-    const guestContent = document.getElementById("guest-content");
-
-    if (name && guestContent) {
-      guestContent.innerHTML = `
-        <h2 class="text-4xl mb-4 font-greatVibes text-background"> ${name},</h2>
-        <p class="text-xl mb-2">Hemos reservado: </p>
-        <p class="text-4xl font-greatVibes text-background">${pases ?? 1} pases</p>
-        <p class="text-xl">en su honor</p>
-
-      `;
-    }
-  });
-</script>

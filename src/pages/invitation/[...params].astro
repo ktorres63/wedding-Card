@@ -1,0 +1,24 @@
+---
+// src/pages/invitation/[...params].astro
+
+import Layout from "../../layouts/Layout.astro";
+import Guest from "../../components/Guest.astro";
+import Hero from "../../components/Hero.astro";
+import Parents from "../../components/Parents.astro";
+import Compass from "../../components/Compass.astro";
+import Countdown from "../../components/Countdown.astro";
+
+const segments = Astro.params.params?.split("/") ?? [];
+const nombre = decodeURIComponent(segments[0] ?? "Invitado");
+const pases = decodeURIComponent(segments[1] ?? "1");
+---
+
+<Layout title="Invitación">
+  <section>
+    <Hero />
+    <Guest nombre={nombre} pases={pases} />
+    <Parents />
+    <Compass />
+    <Countdown />
+  </section>
+</Layout>

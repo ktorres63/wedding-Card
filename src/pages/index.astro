@@ -1,22 +1,21 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Hero from '../components/Hero.astro';
-import Parents from '../components/Parents.astro';
-import Compass from '../components/Compass.astro';
-import Guest from '../components/Guest.astro';
+import Layout from "../layouts/Layout.astro";
 
-const { searchParams } = new URL(Astro.request.url);
-const nombre = searchParams.get('nombre') ?? null;
-
+const nombre = Astro.url.searchParams.get("nombre") ?? "";
+const pases = Astro.url.searchParams.get("pases") ?? 1;
+const enlace = nombre ? `/invitation/${encodeURIComponent(nombre)}/${encodeURIComponent(pases)}` : "/invitation";
 ---
 
-<Layout title="Wedding-Web">
-	<section id="inicio">
-    <Hero />
-    <Guest/>
-    <Parents/>
-    <Compass/>
+<Layout title="Wedding Invitation">
+  <section class="text-center py-10 px-6 bg-background text-primary">
+    <h2 class="text-3xl font-bold mb-4">Bienvenido</h2>
+    <p class="text-xl mb-6">Gracias por acompañarnos en este día especial</p>
 
+    <a
+      href={enlace}
+      class="bg-primary text-white py-2 px-4 rounded hover:bg-primary/90 transition"
+    >
+      Ver invitación personalizada
+    </a>
   </section>
-
 </Layout>
