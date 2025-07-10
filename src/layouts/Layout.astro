@@ -1,25 +1,32 @@
 ---
 import "../styles/global.css";
-import { ClientRouter } from 'astro:transitions';
-
+import { ClientRouter } from "astro:transitions";
 ---
+
 <!doctype html>
-<html lang="en" >
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>Wedding-Card</title>
-    <ClientRouter/>
+    <ClientRouter />
   </head>
-  <body transition:animate="slide" >
+  <body transition:animate="slide">
+    <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+      <div id="scrolling-bg" class="absolute top-0 left-0 h-full flex">
+        <img src="/img/FondoMundo.webp" alt="bg1" class="h-full object-cover min-w-full" />
+        <img src="/img/FondoMundo.webp" alt="bg2" class="h-full object-cover min-w-full" />
+        <img src="/img/FondoMundo.webp" alt="bg3" class="h-full object-cover min-w-full" />
+      </div>
+    </div>
+
     <slot />
   </body>
 </html>
 
 <style is:global>
-	@reference "../styles/global.css";
-
+  @reference "../styles/global.css";
   html {
     @apply bg-background;
     @apply scroll-smooth;
@@ -27,3 +34,56 @@ import { ClientRouter } from 'astro:transitions';
   }
 
 </style>
+
+<script>
+  // Esperamos a que el DOM esté cargado
+  document.addEventListener('DOMContentLoaded', () => {
+    const bg = document.getElementById("scrolling-bg");
+    if (!bg) return;
+    
+    let offset = 0;
+    const speed = 0.2;
+    
+    // Obtenemos el ancho real de la ventana
+    const viewportWidth = window.innerWidth;
+    
+    function updateTransform() {
+      // Calculamos el desplazamiento con módulo para crear el efecto infinito
+      const translateX = -offset % viewportWidth;
+      if(bg){
+        bg.style.transform = `translateX(${translateX}px)`;
+      }
+    }
+
+    // Scroll con rueda del mouse
+    window.addEventListener("wheel", (e) => {
+      offset += e.deltaY * speed;
+      updateTransform();
+    });
+
+    // Scroll táctil para móviles
+    let startX = 0;
+    let isTouch = false;
+    
+    window.addEventListener("touchstart", (e) => {
+      startX = e.touches[0].clientX;
+      isTouch = true;
+    });
+
+    window.addEventListener("touchmove", (e) => {
+      if (!isTouch) return;
+      e.preventDefault();
+      const deltaX = e.touches[0].clientX - startX;
+      offset -= deltaX * speed;
+      updateTransform();
+      startX = e.touches[0].clientX;
+    });
+    
+    window.addEventListener("touchend", () => {
+      isTouch = false;
+    });
+
+    // Inicializar la posición
+    updateTransform();
+  });
+</script>
