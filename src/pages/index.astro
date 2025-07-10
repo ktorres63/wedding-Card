@@ -5,6 +5,8 @@ const nombre = Astro.url.searchParams.get("nombre") ?? "";
 const pases = Astro.url.searchParams.get("pases") ?? 1;
 const enlace = nombre ? `/invitation/${encodeURIComponent(nombre)}/${encodeURIComponent(pases)}` : "/invitation";
 
+export const prerender = true
+
 
 ---
 

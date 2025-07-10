@@ -1,6 +1,6 @@
 import { c as createComponent, m as maybeRenderHead, b as renderTemplate, a as createAstro, r as renderComponent } from '../../chunks/astro/server_Cc_tKawg.mjs';
 import 'kleur/colors';
-import { $ as $$Layout } from '../../chunks/Layout_sy-mc316.mjs';
+import { $ as $$Layout } from '../../chunks/Layout_DXlrm8DT.mjs';
 import 'clsx';
 export { renderers } from '../../renderers.mjs';
 
@@ -84,7 +84,14 @@ var __defProp = Object.defineProperty;
 var __template = (cooked, raw) => __freeze(__defProp(cooked, "raw", { value: __freeze(cooked.slice()) }));
 var _a;
 const $$Countdown = createComponent(($$result, $$props, $$slots) => {
-  return renderTemplate(_a || (_a = __template(["", `<section class="relative text-center py-10 px-6 bg-background text-primary" id="countdown"> <img src="/img/Avion-izquierda.gif" alt="Avi\xF3n volando" class="absolute left-0 top-4 w-20 z-10"> <div class="mb-6"> <div class="flex justify-around items-center gap-4 max-w-xl w-full mx-auto px-4"> <p class="text-3xl text-black ">S\xC1BADO</p> <p class="text-7xl text-primary border-x-2 border-black px-7">09</p> <p class="text-3xl text-black">AGOSTO</p> </div> <p class="text-xl text-black font-bold">Arequipa 2025</p> </div> <div class="text-2xl flex justify-center gap-4 text-black border-black border-y-2 w-fit mx-auto" id="timer"> <div><span id="days">00</span> <span class="block text-sm">D\xEDas</span></div> <div><span id="hours">00</span> <span class="block text-sm">Horas</span></div> <div><span id="minutes">00</span> <span class="block text-sm">Minutos</span></div> <div><span id="seconds">00</span> <span class="block text-sm">Segundos</span></div> </div> </section> <script>
+  return renderTemplate(_a || (_a = __template(["", `<section class="relative text-center py-10 px-6 bg-background text-primary" id="countdown"> <img src="/img/Avion-izquierda.gif" alt="Avi\xF3n volando" class="absolute left-0 top-4 w-20 z-10"> <!-- <div class="mb-6">
+    <div class="flex justify-around items-center gap-4 max-w-xl w-full mx-auto px-4">
+      <p class="text-3xl text-black ">S\xC1BADO</p>
+      <p class="text-7xl text-primary border-x-2 border-black px-7">09</p>
+      <p class="text-3xl text-black">AGOSTO</p>
+    </div>
+    <p class="text-xl text-black font-bold">Arequipa 2025</p>
+  </div> --> <div class="text-2xl flex justify-center gap-4 text-black border-black border-y-2 w-fit mx-auto" id="timer"> <div><span id="days">00</span> <span class="block text-sm">D\xEDas</span></div> <div><span id="hours">00</span> <span class="block text-sm">Horas</span></div> <div><span id="minutes">00</span> <span class="block text-sm">Minutos</span></div> <div><span id="seconds">00</span> <span class="block text-sm">Segundos</span></div> </div> </section> <script>
   const targetDate = new Date("2025-08-09T15:00:00"); // \u{1F5D3}\uFE0F Cambia a la fecha/hora de tu boda
 
   function updateCountdown() {
