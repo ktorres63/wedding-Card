@@ -13,18 +13,19 @@ import { ClientRouter } from "astro:transitions";
     <ClientRouter />
   </head>
   <body transition:animate="slide">
-    <!-- Fondo estático -->
-
-
-    <!-- Contenido -->
-    <slot />
+    <slot/>
   </body>
 </html>
 
 <style is:global>
   @reference "../styles/global.css";
 
-  html {
+  html{
     @apply bg-background scroll-smooth font-baskerbille;
   }
+  body{
+    @apply h-full m-0 p-0;
+    @apply bg-[url('/img/FondoMundo.webp')]  bg-center bg-repeat;
+  }
+  
 </style>

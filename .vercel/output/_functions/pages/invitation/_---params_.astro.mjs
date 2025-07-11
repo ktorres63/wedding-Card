@@ -1,46 +1,20 @@
-import { c as createComponent, m as maybeRenderHead, r as renderTemplate, a as createAstro, b as renderComponent } from '../../chunks/astro/server_BLcwpwK3.mjs';
+import { c as createComponent, m as maybeRenderHead, d as renderTemplate, a as createAstro, e as renderComponent } from '../../chunks/astro/server_Df_Z99KY.mjs';
 import 'kleur/colors';
-import { $ as $$Layout } from '../../chunks/Layout_C42Muo1X.mjs';
+import { $ as $$Layout } from '../../chunks/Layout_Bs-ehi-w.mjs';
 import 'clsx';
 export { renderers } from '../../renderers.mjs';
 
 const $$WaveTop = createComponent(($$result, $$props, $$slots) => {
-  return renderTemplate`<!-- <svg
-  xmlns="http://www.w3.org/2000/svg"
-  viewBox="0 0 1440 320"
-  preserveAspectRatio="none"
-  class="w-full h-[80px]"
-  ><path
-    fill="currentColor"
-    fill-opacity="1"
-    d="M0,160L40,144C80,128,160,96,240,117.3C320,139,400,213,480,208C560,203,640,117,720,69.3C800,21,880,11,960,48C1040,85,1120,171,1200,192C1280,213,1360,171,1400,149.3L1440,128L1440,320L1400,320C1360,320,1280,320,1200,320C1120,320,1040,320,960,320C880,320,800,320,720,320C640,320,560,320,480,320C400,320,320,320,240,320C160,320,80,320,40,320L0,320Z"
-  ></path></svg
->
-
-
-
-<svg
-  xmlns="http://www.w3.org/2000/svg"
-  viewBox="0 0 1000 100"
-  preserveAspectRatio="none"
->
-  <path
-    fill="currentColor"
-    fill-opacity="1"
-    d="M790.5,93.1c-59.3-5.3-116.8-18-192.6-50c-29.6-12.7-76.9-31-100.5-35.9c-23.6-4.9-52.6-7.8-75.5-5.3
-  c-10.2,1.1-22.6,1.4-50.1,7.4c-27.2,6.3-58.2,16.6-79.4,24.7c-41.3,15.9-94.9,21.9-134,22.6C72,58.2,0,25.8,0,25.8V100h1000V65.3
-  c0,0-51.5,19.4-106.2,25.7C839.5,97,814.1,95.2,790.5,93.1z"
-  ></path>
-</svg> -->${maybeRenderHead()}<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none" class="w-full h-[80px]"> <path fill="currentColor" fill-opacity="1" d="M790.5,93.1c-59.3-5.3-116.8-18-192.6-50c-29.6-12.7-76.9-31-100.5-35.9c-23.6-4.9-52.6-7.8-75.5-5.3
+  return renderTemplate`${maybeRenderHead()}<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none" class="w-full h-[80px]"> <path fill="currentColor" fill-opacity="1" d="M790.5,93.1c-59.3-5.3-116.8-18-192.6-50c-29.6-12.7-76.9-31-100.5-35.9c-23.6-4.9-52.6-7.8-75.5-5.3
   c-10.2,1.1-22.6,1.4-50.1,7.4c-27.2,6.3-58.2,16.6-79.4,24.7c-41.3,15.9-94.9,21.9-134,22.6C72,58.2,0,25.8,0,25.8V100h1000V65.3
   c0,0-51.5,19.4-106.2,25.7C839.5,97,814.1,95.2,790.5,93.1z"></path> </svg>`;
-}, "/home/karlo/Escritorio/wedding-web/src/components/WaveTop.astro", void 0);
+}, "/home/karlo/Escritorio/wedding-web/src/components/icons/WaveTop.astro", void 0);
 
 const $$WaveBottom = createComponent(($$result, $$props, $$slots) => {
   return renderTemplate`${maybeRenderHead()}<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none" class="w-full h-[80px] rotate-180"> <path fill="currentColor" fill-opacity="1" d="M790.5,93.1c-59.3-5.3-116.8-18-192.6-50c-29.6-12.7-76.9-31-100.5-35.9c-23.6-4.9-52.6-7.8-75.5-5.3
  c-10.2,1.1-22.6,1.4-50.1,7.4c-27.2,6.3-58.2,16.6-79.4,24.7c-41.3,15.9-94.9,21.9-134,22.6C72,58.2,0,25.8,0,25.8V100h1000V65.3
  c0,0-51.5,19.4-106.2,25.7C839.5,97,814.1,95.2,790.5,93.1z"></path> </svg>`;
-}, "/home/karlo/Escritorio/wedding-web/src/components/WaveBottom.astro", void 0);
+}, "/home/karlo/Escritorio/wedding-web/src/components/icons/WaveBottom.astro", void 0);
 
 const $$Astro$1 = createAstro();
 const $$Guest = createComponent(($$result, $$props, $$slots) => {
@@ -137,7 +111,7 @@ const $$ = createComponent(($$result, $$props, $$slots) => {
   const segments = Astro2.params.params?.split("/") ?? [];
   const nombre = decodeURIComponent(segments[0] ?? "Invitado");
   const pases = decodeURIComponent(segments[1] ?? "1");
-  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "Invitaci\xF3n" }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<section> ${renderComponent($$result2, "Hero", $$Hero, {})} ${renderComponent($$result2, "Guest", $$Guest, { "nombre": nombre, "pases": pases })} ${renderComponent($$result2, "Parents", $$Parents, {})} ${renderComponent($$result2, "Compass", $$Compass, {})} ${renderComponent($$result2, "Countdown", $$Countdown, {})} </section> ` })}`;
+  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "Invitaci\xF3n" }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<div class="fixed inset-0 z-0 overflow-hidden pointer-events-none"> <img src="/img/FondoMundo.webp" alt="background" class="w-full h-full object-cover"> </div> <section> ${renderComponent($$result2, "Hero", $$Hero, {})} ${renderComponent($$result2, "Guest", $$Guest, { "nombre": nombre, "pases": pases })} ${renderComponent($$result2, "Parents", $$Parents, {})} ${renderComponent($$result2, "Compass", $$Compass, {})} ${renderComponent($$result2, "Countdown", $$Countdown, {})} </section> ` })}`;
 }, "/home/karlo/Escritorio/wedding-web/src/pages/invitation/[...params].astro", void 0);
 
 const $$file = "/home/karlo/Escritorio/wedding-web/src/pages/invitation/[...params].astro";
