@@ -1,26 +1,44 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import IconPasaporte from "../components/icons/PassportIcon.astro";
+import IconBrujula from "../components/icons/IconCompass.astro";
 
 const nombre = Astro.url.searchParams.get("nombre") ?? "";
 const pases = Astro.url.searchParams.get("pases") ?? 1;
-const enlace = nombre ? `/invitation/${encodeURIComponent(nombre)}/${encodeURIComponent(pases)}` : "/invitation";
+const enlace = nombre
+  ? `/invitation/${encodeURIComponent(nombre)}/${encodeURIComponent(pases)}`
+  : "/invitation";
 
-
-export const prerender = false
-
+export const prerender = false;
 ---
 
-
 <Layout title="Wedding Invitation">
-  <section class="text-center py-10 px-6 bg-background text-primary">
-    <h2 class="text-3xl font-bold mb-4">Bienvenido</h2>
-    <p class="text-xl mb-6">Gracias por acompañarnos en este día especial</p>
+  <section
+    class="h-screen flex flex-col items-center justify-center text-center px-6 bg-primary text-secondary"
+  >
+    <IconPasaporte className="w-14 text-background mb-6" />
 
+    <h2 class="text-6xl mb-4 font-baskerbille">PASAPORTE</h2>
+    <p class="text-3xl mb-6 font-greatVibes">a nuestra boda</p>
+
+    <div class="relative w-44 h-44 mb-6">
+      <!-- Icono en el fondo -->
+      <IconBrujula className="w-full h-full text-background" />
+      <!-- Letra J en la parte izquierda -->
+      <p class="absolute top-1/2 left-8 -translate-y-1/2 text-6xl">J</p>
+      <!-- Letra Z en la parte derecha -->
+      <p class="absolute top-1/2 right-5 -translate-y-1/2 text-6xl">Z</p>
+    </div>
+
+    <div class="mb-6">
+      <p class="text-3xl font-baskerbille">JHONNY & ZARELA</p>
+      <p class="text-3xl font-baskerbille">09.08.2025</p>
+    </div>
     <a
       href={enlace}
-      class="bg-primary text-white py-2 px-4 rounded hover:bg-primary/90 transition"
+      class="bg-background text-primary py-2 px-4 rounded transition-transform duration-300 hover:scale-105"
     >
-      Ver invitación personalizada
+      Explora tu pasaporte
     </a>
   </section>
 </Layout>

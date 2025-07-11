@@ -16,6 +16,13 @@ const pases = decodeURIComponent(segments[1] ?? "1");
 ---
 
 <Layout title="Invitación">
+  <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
+    <img
+      src="/img/FondoMundo.webp"
+      alt="background"
+      class="w-full h-full object-cover"
+    />
+  </div>
   <section>
     <Hero />
     <Guest nombre={nombre} pases={pases} />
