@@ -1,6 +1,6 @@
 import { c as createComponent, a as createAstro, m as maybeRenderHead, b as addAttribute, d as renderTemplate, e as renderComponent } from '../chunks/astro/server_Df_Z99KY.mjs';
 import 'kleur/colors';
-import { $ as $$Layout } from '../chunks/Layout_Bs-ehi-w.mjs';
+import { $ as $$Layout } from '../chunks/Layout_CgsxYoaM.mjs';
 import 'clsx';
 export { renderers } from '../renderers.mjs';
 

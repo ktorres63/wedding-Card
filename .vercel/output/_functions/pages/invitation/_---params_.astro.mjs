@@ -1,6 +1,6 @@
 import { c as createComponent, m as maybeRenderHead, d as renderTemplate, a as createAstro, e as renderComponent } from '../../chunks/astro/server_Df_Z99KY.mjs';
 import 'kleur/colors';
-import { $ as $$Layout } from '../../chunks/Layout_Bs-ehi-w.mjs';
+import { $ as $$Layout } from '../../chunks/Layout_CgsxYoaM.mjs';
 import 'clsx';
 export { renderers } from '../../renderers.mjs';
 
@@ -29,14 +29,17 @@ const $$Guest = createComponent(($$result, $$props, $$slots) => {
 }, "/home/karlo/Escritorio/wedding-web/src/components/Guest.astro", void 0);
 
 const $$Hero = createComponent(($$result, $$props, $$slots) => {
-  return renderTemplate`${maybeRenderHead()}<section class="flex justify-center"> <div class="p-5"> <h1 class="text-4xl mb-4 text-center">¡Nos Casamos!</h1> <div> <p class="text-center text-xl">
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua.
-</p> <p class="text-center text-sm italic mt-3">(Lorem ipsum dolor)</p> </div> </div> </section>`;
+  return renderTemplate`${maybeRenderHead()}<section class="flex flex-col items-center justify-center p-6 text-center "> <!-- Título principal --> <header class="px-4"> <h1 class="text-4xl sm:text-5xl md:text-7xl font-baskerbille">
+JHONNY & ZARELA
+</h1> <p class="mt-4 text-base sm:text-lg md:text-xl">
+09 de Agosto - Salón Residencial FAP
+</p> <img src="/img/felizPareja.jpg" alt="pareja" class="mt-4 mx-auto max-w-full h-auto rounded-lg shadow-lg"> </header> <!-- Mensaje de bienvenida --> <div class="mt-8 max-w-3xl px-4"> <h2 class="text-3xl sm:text-4xl mb-4 font-baskerbille">¡Nos Casamos!</h2> <p class="text-xl leading-relaxed">
+Uno solo puede ser vencido, pero dos pueden resistir. ¡La cuerda de tres hilos no se rompe facilmente! Dios, esposo y esposa.
+</p> <p class="mt-3 text-sm italic">(Eclesiastés 4:12)</p> </div> </section>`;
 }, "/home/karlo/Escritorio/wedding-web/src/components/Hero.astro", void 0);
 
 const $$Parents = createComponent(($$result, $$props, $$slots) => {
-  return renderTemplate`${maybeRenderHead()}<section class="relative flex justify-center"> <img src="/img/Avion-derecha.gif" alt="Avión volando" class="absolute right-0 top-4 w-20 z-10"> <div class="p-5 max-w-5xl w-full"> <h1 class="text-2xl mb-8 text-center text-primary">
+  return renderTemplate`${maybeRenderHead()}<section class="relative flex justify-center"> <img src="/img/Avion-derecha.gif" alt="Avión volando" class="absolute right-0 top-4 w-20 z-1"> <div class="px-5 py-10 max-w-5xl w-full"> <h1 class="text-2xl mb-8 text-center text-primary">
 CON LA BENDICIÓN DE DIOS Y DE NUESTROS PADRES
 </h1> <div class="grid grid-cols-1 md:grid-cols-2 gap-8"> <!-- Padres de la Novia --> <div> <h2 class="text-2xl mb-4 text-center text-primary">
 PADRES DE LA NOVIA
@@ -58,15 +61,12 @@ var __defProp = Object.defineProperty;
 var __template = (cooked, raw) => __freeze(__defProp(cooked, "raw", { value: __freeze(cooked.slice()) }));
 var _a;
 const $$Countdown = createComponent(($$result, $$props, $$slots) => {
-  return renderTemplate(_a || (_a = __template(["", `<section class="relative text-center py-10 px-6 bg-background text-primary" id="countdown"> <img src="/img/Avion-izquierda.gif" alt="Avi\xF3n volando" class="absolute left-0 top-4 w-20 z-10"> <!-- <div class="mb-6">
-    <div class="flex justify-around items-center gap-4 max-w-xl w-full mx-auto px-4">
-      <p class="text-3xl text-black ">S\xC1BADO</p>
-      <p class="text-7xl text-primary border-x-2 border-black px-7">09</p>
-      <p class="text-3xl text-black">AGOSTO</p>
-    </div>
-    <p class="text-xl text-black font-bold">Arequipa 2025</p>
-  </div> --> <div class="text-2xl flex justify-center gap-4 text-black border-black border-y-2 w-fit mx-auto" id="timer"> <div><span id="days">00</span> <span class="block text-sm">D\xEDas</span></div> <div><span id="hours">00</span> <span class="block text-sm">Horas</span></div> <div><span id="minutes">00</span> <span class="block text-sm">Minutos</span></div> <div><span id="seconds">00</span> <span class="block text-sm">Segundos</span></div> </div> </section> <script>
-  const targetDate = new Date("2025-08-09T15:00:00"); // \u{1F5D3}\uFE0F Cambia a la fecha/hora de tu boda
+  return renderTemplate(_a || (_a = __template(["", `<section class="relative text-center py-12 px-6 text-primary" id="countdown"> <!-- Avi\xF3n animado a la izquierda --> <img src="/img/Avion-izquierda.gif" alt="Avi\xF3n volando" class="absolute left-4 top-4 w-16 sm:w-20 z-10"> <!-- Fecha principal (d\xEDa y lugar) --> <div class="mb-10"> <div class="flex justify-center flex-wrap gap-4 w-full max-w-xl mx-auto"> <p class="text-2xl sm:text-3xl text-black self-center">S\xC1BADO</p> <p class="text-3xl sm:text-7xl text-primary border-x-2 font-bold border-black px-5 sm:px-7">
+09
+</p> <p class="text-2xl sm:text-3xl text-black self-center">AGOSTO</p> </div> <p class="mt-4 text-lg sm:text-xl text-black font-bold">Arequipa 2025</p> </div> <!-- Reloj contador --> <div id="timer" class="flex flex-wrap justify-center gap-4 sm:gap-6 text-black text-4xl sm:text-5xl md:text-6xl border-y-2 border-black py-4 w-fit mx-auto"> <div class="flex flex-col items-center"> <span id="days">00</span> <span class="text-sm sm:text-base">D\xEDas</span> </div> <div class="flex flex-col items-center"> <span id="hours">00</span> <span class="text-sm sm:text-base">Horas</span> </div> <div class="flex flex-col items-center"> <span id="minutes">00</span> <span class="text-sm sm:text-base">Minutos</span> </div> <div class="flex flex-col items-center"> <span id="seconds">00</span> <span class="text-sm sm:text-base">Segundos</span> </div> </div> <div class="text-center px-4 pt-10 flex flex-col items-center gap-4 max-w-xl mx-auto"> <img src="/img/selloViaje.svg" alt="Br\xFAjula giratoria" class="w-24 sm:w-28 md:w-32 h-auto"> <p class="text-base sm:text-lg leading-relaxed">
+Deseamos celebrar nuestra boda con su compa\xF1\xEDa y es por eso que nos complace invitarles a nuestra boda.
+</p> </div> </section> <script>
+  const targetDate = new Date("2025-08-09T15:00:00");
 
   function updateCountdown() {
     const now = new Date();
@@ -103,6 +103,12 @@ const $$Countdown = createComponent(($$result, $$props, $$slots) => {
 <\/script>`])), maybeRenderHead());
 }, "/home/karlo/Escritorio/wedding-web/src/components/Countdown.astro", void 0);
 
+const $$MapSuit = createComponent(($$result, $$props, $$slots) => {
+  return renderTemplate`${maybeRenderHead()}<section class="relative flex justify-center"> <div class="px-5 py-10 max-w-5xl w-full"> <div class="grid grid-cols-1 md:grid-cols-2 gap-10"> <!-- Escala --> <div class="flex flex-col items-center text-center gap-3"> <img src="/img/map.png" alt="Ubicación" class="w-24 sm:w-28 md:w-32 h-auto"> <h2 class="text-5xl sm:text-6xl mb-2 text-primary font-greatVibes">Escala</h2> <p class="text-xl">Salón Residencial FAP</p> <p class="text-xl">15:00 h</p> <a href="https://maps.app.goo.gl/N5SuohcMjrWYtQv19" target="_blank" class="mt-2 inline-block bg-primary text-white px-5 py-2 rounded-full shadow hover:bg-primary/90 transition">
+Ver en Google Maps
+</a> </div> <!-- Vestimenta --> <div class="flex flex-col items-center text-center gap-3"> <img src="/img/suit.png" alt="Vestimenta" class="w-24 sm:w-28 md:w-32 h-auto"> <h2 class="text-5xl sm:text-6xl mb-2 text-primary font-greatVibes">Vestimenta</h2> <div> <h3 class="text-xl font-bold">Mujeres</h3> <p class="text-xl">Vestido Largo</p> <p class="text-xl">Ni un color parecido al blanco</p> <h3 class="text-xl font-bold">Hombres</h3> <p class="text-xl">Con Traje</p> </div> </div> </div> </div> </section>`;
+}, "/home/karlo/Escritorio/wedding-web/src/components/MapSuit.astro", void 0);
+
 const $$Astro = createAstro();
 const prerender = false;
 const $$ = createComponent(($$result, $$props, $$slots) => {
@@ -111,7 +117,7 @@ const $$ = createComponent(($$result, $$props, $$slots) => {
   const segments = Astro2.params.params?.split("/") ?? [];
   const nombre = decodeURIComponent(segments[0] ?? "Invitado");
   const pases = decodeURIComponent(segments[1] ?? "1");
-  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "Invitaci\xF3n" }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<div class="fixed inset-0 z-0 overflow-hidden pointer-events-none"> <img src="/img/FondoMundo.webp" alt="background" class="w-full h-full object-cover"> </div> <section> ${renderComponent($$result2, "Hero", $$Hero, {})} ${renderComponent($$result2, "Guest", $$Guest, { "nombre": nombre, "pases": pases })} ${renderComponent($$result2, "Parents", $$Parents, {})} ${renderComponent($$result2, "Compass", $$Compass, {})} ${renderComponent($$result2, "Countdown", $$Countdown, {})} </section> ` })}`;
+  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "Invitaci\xF3n" }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<section> ${renderComponent($$result2, "Hero", $$Hero, {})} ${renderComponent($$result2, "Guest", $$Guest, { "nombre": nombre, "pases": pases })} ${renderComponent($$result2, "Parents", $$Parents, {})} ${renderComponent($$result2, "Compass", $$Compass, {})} ${renderComponent($$result2, "Countdown", $$Countdown, {})} ${renderComponent($$result2, "MapSuit", $$MapSuit, {})} </section> ` })} `;
 }, "/home/karlo/Escritorio/wedding-web/src/pages/invitation/[...params].astro", void 0);
 
 const $$file = "/home/karlo/Escritorio/wedding-web/src/pages/invitation/[...params].astro";

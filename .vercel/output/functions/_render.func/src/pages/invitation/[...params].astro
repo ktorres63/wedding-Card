@@ -1,5 +1,5 @@
 ---
-export const prerender = false
+export const prerender = false;
 
 import Layout from "../../layouts/Layout.astro";
 import Guest from "../../components/Guest.astro";
@@ -7,27 +7,21 @@ import Hero from "../../components/Hero.astro";
 import Parents from "../../components/Parents.astro";
 import Compass from "../../components/Compass.astro";
 import Countdown from "../../components/Countdown.astro";
+import MapSuit from "../../components/MapSuit.astro";
 
 const segments = Astro.params.params?.split("/") ?? [];
 const nombre = decodeURIComponent(segments[0] ?? "Invitado");
 const pases = decodeURIComponent(segments[1] ?? "1");
-
-
 ---
 
 <Layout title="Invitación">
-  <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-    <img
-      src="/img/FondoMundo.webp"
-      alt="background"
-      class="w-full h-full object-cover"
-    />
-  </div>
   <section>
     <Hero />
     <Guest nombre={nombre} pases={pases} />
     <Parents />
     <Compass />
     <Countdown />
+    <MapSuit />
   </section>
 </Layout>
+<style></style>

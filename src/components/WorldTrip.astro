@@ -1,0 +1,42 @@
+<div class="relative w-60 h-60 mx-auto my-5">
+  <!-- Imagen base (puntos cardinales) -->
+  <img
+    src="/img/ciudadMundoBase.webp"
+    alt="ciudad"
+    class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-4/5 z-10"
+  />
+
+  <!-- Imagen de la brújula (aguja que rota) -->
+  <img
+    src="/img/ciudadMundo.webp"
+    alt="avion"
+    class="absolute inset-0 w-full h-full z-20 transition-transform duration-300 origin-center"
+    id="fly"
+  />
+</div>
+
+<script is:inline>
+  const fly = document.getElementById("fly");
+  let rotationFly = 0;
+
+  // Para mouse
+  window.addEventListener("wheel", (e) => {
+    rotationFly += e.deltaY * 0.1;
+    fly.style.transform = `rotate(${rotationFly}deg)`;
+  });
+
+  // Para táctil (mobile)
+  let startY_Fly = 0;
+
+  window.addEventListener("touchstart", (e) => {
+    startY_Fly = e.touches[0].clientY;
+  });
+
+  window.addEventListener("touchmove", (e) => {
+    const currentY = e.touches[0].clientY;
+    const deltaY = currentY - startY_Fly;
+    rotationFly += deltaY * 0.1; // Ajusta sensibilidad
+    fly.style.transform = `rotate(${rotationFly}deg)`;
+    startY_Fly = currentY; // Actualiza para siguiente movimiento
+  });
+</script>
