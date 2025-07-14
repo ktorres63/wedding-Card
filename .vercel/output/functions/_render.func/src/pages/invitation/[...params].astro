@@ -8,6 +8,10 @@ import Parents from "../../components/Parents.astro";
 import Compass from "../../components/Compass.astro";
 import Countdown from "../../components/Countdown.astro";
 import MapSuit from "../../components/MapSuit.astro";
+import WorldTrip from "../../components/WorldTrip.astro";
+import Itinerary from "../../components/Itinerary.astro";
+import Photos from "../../components/Photos.astro";
+
 
 const segments = Astro.params.params?.split("/") ?? [];
 const nombre = decodeURIComponent(segments[0] ?? "Invitado");
@@ -19,9 +23,13 @@ const pases = decodeURIComponent(segments[1] ?? "1");
     <Hero />
     <Guest nombre={nombre} pases={pases} />
     <Parents />
-    <Compass />
+    <Compass />  
     <Countdown />
     <MapSuit />
+    <WorldTrip />
+    <Itinerary/>
+    <Photos/>
+
   </section>
 </Layout>
 <style></style>

@@ -1,14 +1,94 @@
+---
+import { onMount } from "astro/client";
+---
+
 <section class="relative flex justify-center">
   <div class="px-5 max-w-5xl w-full">
     <div class="flex flex-col items-center text-center gap-3">
       <h2 class="text-5xl sm:text-6xl mb-2 text-primary font-greatVibes">
         Nuestro viaje
       </h2>
-      <p class="text-xl">
-        Carrusel Aqui
-      </p>
 
+      <div class="embla overflow-hidden relative">
+        <div class="embla__viewport overflow-hidden">
+          <div class="embla__container flex">
+            <div class="embla__slide flex-[0_0_100%] p-2">
+              <img
+                src="/img/felizPareja.jpg"
+                alt="Slide 1"
+                class="w-full h-auto rounded-xl"
+              />
+            </div>
+            <div class="embla__slide flex-[0_0_100%] p-2">
+              <img
+                src="/img/felizPareja.jpg"
+                alt="Slide 2"
+                class="w-full h-auto rounded-xl"
+              />
+            </div>
 
+          </div>
+        </div>
+
+        <!-- Botones de navegación -->
+        <button
+          class="embla__prev absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors z-10"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M15 19l-7-7 7-7"></path>
+          </svg>
+        </button>
+        <button
+          class="embla__next absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-2 rounded-full transition-colors z-10"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
     </div>
   </div>
 </section>
+
+
+<script>
+  import EmblaCarousel from 'embla-carousel';
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const viewport = document.querySelector('.embla__viewport');
+    const prevBtn = document.querySelector('.embla__prev');
+    const nextBtn = document.querySelector('.embla__next');
+    
+    if (viewport) {
+      const embla = EmblaCarousel(viewport, {
+        loop: true,
+      });
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', () => embla.scrollPrev());
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', () => embla.scrollNext());
+      }
+    }
+  });
+</script>
