@@ -1,5 +1,4 @@
 ---
-export const prerender = false;
 
 import Layout from "../../layouts/Layout.astro";
 import Guest from "../../components/Guest.astro";
@@ -10,12 +9,19 @@ import Countdown from "../../components/Countdown.astro";
 import MapSuit from "../../components/MapSuit.astro";
 import WorldTrip from "../../components/WorldTrip.astro";
 import Itinerary from "../../components/Itinerary.astro";
-import Photos from "../../components/Photos.astro";
+import EngagedPhotos from "../../components/EngagedPhotos.astro";
+import QrCode from "../../components/QrCode.astro";
+import CheckIn from "../../components/CheckIn.astro";
+import PartyPhotos from "../../components/PartyPhotos.astro";
+import OnlyAdults from "../../components/OnlyAdults.astro";
 
 
 const segments = Astro.params.params?.split("/") ?? [];
 const nombre = decodeURIComponent(segments[0] ?? "Invitado");
 const pases = decodeURIComponent(segments[1] ?? "1");
+
+export const prerender = false;
+
 ---
 
 <Layout title="Invitación">
@@ -28,7 +34,11 @@ const pases = decodeURIComponent(segments[1] ?? "1");
     <MapSuit />
     <WorldTrip />
     <Itinerary/>
-    <Photos/>
+    <EngagedPhotos/>
+    <QrCode/>
+    <OnlyAdults/>
+    <PartyPhotos/>
+    <CheckIn/>
 
   </section>
 </Layout>

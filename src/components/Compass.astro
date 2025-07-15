@@ -21,7 +21,7 @@
 
   // Para mouse
   window.addEventListener("wheel", (e) => {
-    rotation += e.deltaY * 0.1;
+    rotation += e.deltaY * 0.2;
     needle.style.transform = `rotate(${rotation}deg)`;
   });
 
@@ -35,7 +35,7 @@
   window.addEventListener("touchmove", (e) => {
     const currentY = e.touches[0].clientY;
     const deltaY = currentY - startY;
-    rotation += deltaY * 0.1; // Ajusta sensibilidad
+    rotation += deltaY * 0.2; // Ajusta sensibilidad
     needle.style.transform = `rotate(${rotation}deg)`;
     startY = currentY; // Actualiza para siguiente movimiento
   });

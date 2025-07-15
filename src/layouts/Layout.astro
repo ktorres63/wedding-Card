@@ -1,6 +1,7 @@
 ---
 import "../styles/global.css";
 import { ClientRouter } from "astro:transitions";
+import Music from "../components/icons/music.astro"
 ---
 
 <!doctype html>
@@ -9,23 +10,56 @@ import { ClientRouter } from "astro:transitions";
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <script
+      src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"
+    ></script>
     <title>Wedding-Card</title>
     <ClientRouter />
   </head>
   <body transition:animate="slide">
-    <slot/>
+    <div class="fixed bottom-4 right-4 z-50">
+      <button
+        id="music-toggle"
+        class="border text-white bg-primary rounded-full p-3 shadow-lg hover:scale-110 transition duration-300"
+        aria-label="Reproducir música"
+      >
+        <Music className="w-6 h-6 text-white" />
+      </button>
+    </div>
+
+    <!-- Audio -->
+    <audio id="bg-music" src="/music/music.mp3" preload="auto" loop></audio>
+    <slot />
   </body>
 </html>
 
 <style is:global>
   @reference "../styles/global.css";
 
-  html{
+  html {
     @apply bg-background scroll-smooth font-baskerbille;
   }
-  body{
+  body {
     @apply h-full m-0 p-0;
     @apply bg-[url('/img/FondoMundo.webp')]  bg-center bg-repeat;
   }
-  
 </style>
+<script is:inline>
+  const btn = document.getElementById("music-toggle");
+  const audio = document.getElementById("bg-music");
+  let playing = false;
+
+  btn.addEventListener("click", () => {
+    if (!playing) {
+      audio.play();
+      playing = true;
+      btn.classList.add("bg-play");
+      btn.classList.remove("bg-primary");
+    } else {
+      audio.pause();
+      playing = false;
+      btn.classList.remove("bg-play");
+      btn.classList.add("bg-primary");
+    }
+  });
+</script>

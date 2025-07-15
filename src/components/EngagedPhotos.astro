@@ -1,0 +1,151 @@
+---
+// Versión más simple del carrusel
+---
+
+<section class="relative flex justify-center">
+  <div class="px-5 max-w-5xl w-full">
+    <div class="flex flex-col items-center text-center gap-3">
+      <h2 class="text-5xl sm:text-6xl mb-2 text-primary font-greatVibes">
+        Nuestro viaje
+      </h2>
+
+      <div class="carousel-container relative w-full max-w-4xl mx-auto">
+        <div class="carousel-wrapper overflow-hidden rounded-xl">
+          <div
+            class="carousel-track flex transition-transform duration-500 ease-in-out"
+          >
+            <div class="carousel-slide min-w-full">
+              <img
+                src="/img/fotoPareja1.webp"
+                alt="Slide 1"
+                class="w-full h-auto object-cover"
+              />
+            </div>
+            <div class="carousel-slide min-w-full">
+              <img
+                src="/img/fotoPareja2.webp"
+                alt="Slide 2"
+                class="w-full h-auto object-cover"
+              />
+            </div>
+            <div class="carousel-slide min-w-full">
+              <img
+                src="/img/fotoPareja3.webp"
+                alt="Slide 3"
+                class="w-full h-auto object-cover"
+              />
+            </div>
+            <div class="carousel-slide min-w-full">
+              <img
+                src="/img/fotoPareja4.webp"
+                alt="Slide 3"
+                class="w-full h-auto object-cover"
+              />
+            </div>
+          </div>
+        </div>
+
+        <!-- Botones de navegación -->
+        <button
+          id="prevBtn"
+          class="absolute left-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all duration-300 z-10"
+        >
+          &#8249;
+        </button>
+
+        <button
+          id="nextBtn"
+          class="absolute right-4 top-1/2 -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white p-3 rounded-full transition-all duration-300 z-10"
+        >
+          &#8250;
+        </button>
+
+        <!-- Indicadores -->
+        <div class="carousel-dots flex justify-center gap-3 mt-6">
+          <button
+            class="dot w-3 h-3 rounded-full bg-primary transition-all duration-300"
+            data-slide="0"></button>
+          <button
+            class="dot w-3 h-3 rounded-full bg-gray-400 transition-all duration-300"
+            data-slide="1"></button>
+          <button
+            class="dot w-3 h-3 rounded-full bg-gray-400 transition-all duration-300"
+            data-slide="2"></button>
+          <button
+            class="dot w-3 h-3 rounded-full bg-gray-400 transition-all duration-300"
+            data-slide="2"></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  let currentSlide = 0;
+  const totalSlides = 4;
+  let autoPlayInterval;
+
+  const track = document.querySelector(".carousel-track");
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+  const dots = document.querySelectorAll(".dot");
+  const container = document.querySelector(".carousel-container");
+
+  function updateCarousel() {
+    // Mover el track
+    const translateX = -currentSlide * 100;
+    track.style.transform = `translateX(${translateX}%)`;
+
+    // Actualizar indicadores
+    dots.forEach((dot, index) => {
+      if (index === currentSlide) {
+        dot.classList.remove("bg-gray-400");
+        dot.classList.add("bg-primary");
+      } else {
+        dot.classList.remove("bg-primary");
+        dot.classList.add("bg-gray-400");
+      }
+    });
+  }
+
+  function goToSlide(index) {
+    currentSlide = index;
+    updateCarousel();
+  }
+
+  function nextSlide() {
+    currentSlide = currentSlide === totalSlides - 1 ? 0 : currentSlide + 1;
+    updateCarousel();
+  }
+
+  function prevSlide() {
+    currentSlide = currentSlide === 0 ? totalSlides - 1 : currentSlide - 1;
+    updateCarousel();
+  }
+
+  function startAutoPlay() {
+    autoPlayInterval = setInterval(nextSlide, 4000);
+  }
+
+  function stopAutoPlay() {
+    if (autoPlayInterval) {
+      clearInterval(autoPlayInterval);
+    }
+  }
+
+  // Event listeners
+  nextBtn.addEventListener("click", nextSlide);
+  prevBtn.addEventListener("click", prevSlide);
+
+  dots.forEach((dot, index) => {
+    dot.addEventListener("click", () => goToSlide(index));
+  });
+
+  // Pausar autoplay en hover
+  container.addEventListener("mouseenter", stopAutoPlay);
+  container.addEventListener("mouseleave", startAutoPlay);
+
+  // Inicializar
+  updateCarousel();
+  startAutoPlay();
+</script>

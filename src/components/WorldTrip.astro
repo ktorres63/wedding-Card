@@ -21,7 +21,7 @@
 
   // Para mouse
   window.addEventListener("wheel", (e) => {
-    rotationFly += e.deltaY * 0.1;
+    rotationFly += e.deltaY * 0.2;
     fly.style.transform = `rotate(${rotationFly}deg)`;
   });
 
@@ -35,7 +35,7 @@
   window.addEventListener("touchmove", (e) => {
     const currentY = e.touches[0].clientY;
     const deltaY = currentY - startY_Fly;
-    rotationFly += deltaY * 0.1; // Ajusta sensibilidad
+    rotationFly += deltaY * 0.2; // Ajusta sensibilidad
     fly.style.transform = `rotate(${rotationFly}deg)`;
     startY_Fly = currentY; // Actualiza para siguiente movimiento
   });

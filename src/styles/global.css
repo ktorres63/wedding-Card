@@ -1,12 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Baskervville:ital,wght@0,400..700;1,400..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
 @import "tailwindcss";
 
 @theme {
   --font-baskerbille: "Baskerville", "sans-serif";
   --font-greatVibes: "Great Vibes", cursive;
+  --font-poiret: "Poiret One", sans-serif;
   --color-primary: #0D0D0D;
   --color-secondary: #ffffff;
   --color-background: #F2EDE4;
+  --color-play:#5C4033;	
   --color-avocado-100: oklch(0.99 0 0);
 }
