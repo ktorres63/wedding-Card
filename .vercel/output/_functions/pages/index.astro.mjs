@@ -1,8 +1,14 @@
-import { c as createComponent, a as createAstro, m as maybeRenderHead, b as addAttribute, d as renderTemplate, e as renderComponent } from '../chunks/astro/server_Df_Z99KY.mjs';
+import { c as createComponent, f as renderComponent, g as renderHead, b as addAttribute, h as renderSlot, i as renderTransition, d as renderTemplate, a as createAstro, m as maybeRenderHead } from '../chunks/astro/server_lXHhMr3B.mjs';
 import 'kleur/colors';
-import { $ as $$Layout } from '../chunks/Layout_pbUA5JLs.mjs';
+/* empty css                                    */
+import { $ as $$ClientRouter } from '../chunks/ClientRouter_tL_eZBAN.mjs';
+/* empty css                                 */
 import 'clsx';
 export { renderers } from '../renderers.mjs';
+
+const $$SimpleLayout = createComponent(($$result, $$props, $$slots) => {
+  return renderTemplate`<html lang="en"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><title>Invitation</title>${renderComponent($$result, "ClientRouter", $$ClientRouter, {})}${renderHead()}</head> <body${addAttribute(renderTransition($$result, "76hihgda"), "data-astro-transition-scope")}> ${renderSlot($$result, $$slots["default"])} </body></html>`;
+}, "/home/karlo/Escritorio/wedding-web/src/layouts/SimpleLayout.astro", "self");
 
 const $$Astro$2 = createAstro();
 const $$PassportIcon = createComponent(($$result, $$props, $$slots) => {
@@ -72,7 +78,7 @@ const $$Index = createComponent(($$result, $$props, $$slots) => {
   const nombre = Astro2.url.searchParams.get("nombre") ?? "";
   const pases = Astro2.url.searchParams.get("pases") ?? 1;
   const enlace = nombre ? `/invitation/${encodeURIComponent(nombre)}/${encodeURIComponent(pases)}` : "/invitation";
-  return renderTemplate`${renderComponent($$result, "Layout", $$Layout, { "title": "Wedding Invitation" }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<section class="h-screen flex flex-col items-center justify-center text-center px-6 bg-primary text-secondary"> ${renderComponent($$result2, "IconPasaporte", $$PassportIcon, { "className": "w-14 text-background mb-6" })} <h2 class="text-6xl mb-4 font-baskerbille">PASAPORTE</h2> <p class="text-3xl mb-6 font-greatVibes">a nuestra boda</p> <div class="relative w-44 h-44 mb-6"> <!-- Icono en el fondo --> ${renderComponent($$result2, "IconBrujula", $$IconCompass, { "className": "w-full h-full text-background" })} <!-- Letra J en la parte izquierda --> <p class="absolute top-1/2 left-8 -translate-y-1/2 text-6xl">J</p> <!-- Letra Z en la parte derecha --> <p class="absolute top-1/2 right-5 -translate-y-1/2 text-6xl">Z</p> </div> <div class="mb-6"> <p class="text-3xl font-baskerbille">JHONNY & ZARELA</p> <p class="text-3xl font-baskerbille">09.08.2025</p> </div> <a${addAttribute(enlace, "href")} class="bg-background text-primary py-2 px-4 rounded transition-transform duration-300 hover:scale-105">
+  return renderTemplate`${renderComponent($$result, "LayoutSimple", $$SimpleLayout, { "title": "Wedding Invitation" }, { "default": ($$result2) => renderTemplate` ${maybeRenderHead()}<section class="h-screen flex flex-col items-center justify-center text-center px-6 bg-primary text-secondary"> ${renderComponent($$result2, "IconPasaporte", $$PassportIcon, { "className": "w-14 text-background mb-6" })} <h2 class="text-6xl mb-4 font-baskerbille">PASAPORTE</h2> <p class="text-3xl mb-6 font-greatVibes">a nuestra boda</p> <div class="relative w-44 h-44 mb-6"> <!-- Icono en el fondo --> ${renderComponent($$result2, "IconBrujula", $$IconCompass, { "className": "w-full h-full text-background" })} <!-- Letra J en la parte izquierda --> <p class="absolute top-1/2 left-5 -translate-y-1/2 text-6xl">Z</p> <!-- Letra Z en la parte derecha --> <p class="absolute top-1/2 right-6 -translate-y-1/2 text-6xl">J</p> </div> <div class="mb-6"> <p class="text-3xl font-baskerbille">ZARELA & JHONNY </p> <p class="text-3xl font-baskerbille">09.08.2025</p> </div> <!-- data-astro-reload --> <a${addAttribute(enlace, "href")} class="bg-background text-primary py-2 px-4 rounded transition-transform duration-300 hover:scale-105">
 Explora tu pasaporte
 </a> </section> ` })}`;
 }, "/home/karlo/Escritorio/wedding-web/src/pages/index.astro", void 0);

@@ -1,7 +1,8 @@
 ---
 import "../styles/global.css";
-import { ClientRouter } from "astro:transitions";
 import Music from "../components/icons/music.astro"
+import { ClientRouter } from "astro:transitions";
+export const prerender = false;
 ---
 
 <!doctype html>
@@ -10,13 +11,13 @@ import Music from "../components/icons/music.astro"
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <script
-      src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"
-    ></script>
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <title>Wedding-Card</title>
     <ClientRouter />
   </head>
+
   <body transition:animate="slide">
+    <!-- Botón de música -->
     <div class="fixed bottom-4 right-4 z-50">
       <button
         id="music-toggle"
@@ -27,9 +28,31 @@ import Music from "../components/icons/music.astro"
       </button>
     </div>
 
-    <!-- Audio -->
-    <audio id="bg-music" src="/music/music.mp3" preload="auto" loop></audio>
+    <!-- Audio (¡marcado como persistente correctamente!) -->
+    <audio
+      id="bg-music"
+      src="/music/music.mp3"
+      preload="auto"
+      loop
+      transition:persist
+    ></audio>
+
     <slot />
+
+    <footer class="bg-primary text-secondary text-center py-6">
+      <p class="text-sm">
+        Desarrollado por:
+        <a href="https://www.facebook.com/karlo.torres.846881/" target="_blank" class="underline hover:text-white">
+          ktorres63
+        </a>
+        <br />
+        Inspirado en:
+        <a href="https://invitali.com/muestra-pasport/?n=2%20pases&m=Daniel%20Martinez" target="_blank" class="underline hover:text-white">
+          Invitali
+        </a>
+      </p>
+    </footer>
+    
   </body>
 </html>
 
@@ -39,27 +62,38 @@ import Music from "../components/icons/music.astro"
   html {
     @apply bg-background scroll-smooth font-baskerbille;
   }
+
   body {
     @apply h-full m-0 p-0;
-    @apply bg-[url('/img/FondoMundo.webp')]  bg-center bg-repeat;
+    @apply bg-[url('/img/FondoMundo.webp')] bg-center bg-repeat;
   }
 </style>
-<script is:inline>
-  const btn = document.getElementById("music-toggle");
-  const audio = document.getElementById("bg-music");
-  let playing = false;
+<!-- data-astro-rerun -->
+<script is:inline >
+  function setupAudioToggle() {
+    const btn = document.getElementById("music-toggle");
+    const audio = document.getElementById("bg-music");
+    if (!btn || !audio) return;
 
-  btn.addEventListener("click", () => {
-    if (!playing) {
-      audio.play();
-      playing = true;
-      btn.classList.add("bg-play");
-      btn.classList.remove("bg-primary");
-    } else {
-      audio.pause();
-      playing = false;
-      btn.classList.remove("bg-play");
-      btn.classList.add("bg-primary");
+    // El estado de reproducción se guarda globalmente
+    if (window._bgMusicState === undefined) {
+      window._bgMusicState = { playing: false };
     }
-  });
+
+    btn.onclick = () => {
+      if (!window._bgMusicState.playing) {
+        audio.play().catch((e) => console.error("Error al reproducir:", e));
+        window._bgMusicState.playing = true;
+        btn.classList.add("bg-play");
+        btn.classList.remove("bg-primary");
+      } else {
+        audio.pause();
+        window._bgMusicState.playing = false;
+        btn.classList.remove("bg-play");
+        btn.classList.add("bg-primary");
+      }
+    };
+  }
+
+  document.addEventListener("astro:page-load", setupAudioToggle);
 </script>

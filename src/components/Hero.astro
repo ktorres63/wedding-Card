@@ -1,17 +1,31 @@
-<section class="flex flex-col items-center justify-center p-6 text-center">
+---
+import SmoothWaves from "./icons/SmoothWaves.astro";
+---
+
+<section class="flex flex-col items-center justify-center text-center">
   <!-- Título principal -->
-  <header class="">
-    <h1 class="text-4xl sm:text-5xl md:text-7xl font-baskerbille">
-      JHONNY & ZARELA
-    </h1>
-    <p class="mt-4 text-base sm:text-lg md:text-xl">
-      09 de Agosto - Salón Residencial FAP
-    </p>
-    <img
-      src="/img/fotoParejaPrincipal.webp"
-      alt="pareja"
-      class="mt-4 mx-auto h-64 sm:h-80 md:h-auto w-full object-cover object-center rounded-lg shadow-lg"
-    />
+  <header class="relative w-full">
+    <div
+      class="relative h-80 sm:h-[28rem] w-full bg-center bg-cover bg-no-repeat"
+      style="background-image: url('/img/fotoParejaPrincipal-Edit.webp')"
+    >
+      <!-- Fondo oscuro opcional para contraste -->
+      <!-- <div class="absolute inset-0 bg-black/30 z-0"></div> -->
+
+      <!-- Olas invertidas -->
+      <SmoothWaves
+        className="absolute bottom-0 left-0 w-full text-background rotate-180"
+      />
+
+      <!-- Texto centrado en Y y a la izquierda en X -->
+      <div
+        class="absolute top-1/2 left-10 -translate-y-1/2 z-10 text-white  font-bold"
+      >
+      <h1 class="text-4xl sm:text-7xl md:text-8xl font-greatVibes">Zarela</h1>
+      <h1 class="text-xl sm:text-2xl md:text-3xl font-baskerbille">&</h1>
+      <h1 class="text-4xl sm:text-7xl md:text-8xl font-greatVibes">Jhonny</h1>
+      </div>
+    </div>
   </header>
 
   <!-- Mensaje de bienvenida -->
