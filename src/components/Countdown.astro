@@ -17,7 +17,7 @@
       </p>
       <p class="text-2xl sm:text-3xl text-black self-center">AGOSTO</p>
     </div>
-    <p class="mt-4 text-lg sm:text-xl text-black font-bold">Piura 2025</p>
+    <p class="mt-4 text-lg sm:text-xl text-black font-bold">Lambayeque 2026</p>
   </div>
   <!-- Reloj contador -->
   <div
@@ -42,22 +42,26 @@
     </div>
   </div>
 
-  <div class="text-center px-4 pt-10 flex flex-col items-center gap-4 max-w-xl mx-auto">
+  <div
+    class="text-center px-4 pt-10 flex flex-col items-center gap-4 max-w-xl mx-auto"
+  >
     <img
       src="/img/selloViaje.svg"
       alt="Brújula giratoria"
       class="w-24 sm:w-28 md:w-32 h-auto"
     />
-  
+
     <p class="text-base sm:text-lg leading-relaxed">
-      Deseamos celebrar nuestra boda con su compañía y es por eso que nos complace invitarles a nuestra boda.
+      Deseamos celebrar nuestra boda con su compañía y es por eso que nos
+      complace invitarles a nuestra boda.
     </p>
   </div>
-  
 </section>
 
 <script is:inline>
-  const targetDate = new Date("2025-08-09T15:00:00");
+  const targetDate = new Date();
+  targetDate.setDate(targetDate.getDate() + 3);
+  targetDate.setHours(15, 0, 0, 0);
 
   function updateCountdown() {
     const now = new Date();
@@ -77,15 +81,15 @@
     document.getElementById("days").textContent = String(days).padStart(2, "0");
     document.getElementById("hours").textContent = String(hours).padStart(
       2,
-      "0"
+      "0",
     );
     document.getElementById("minutes").textContent = String(minutes).padStart(
       2,
-      "0"
+      "0",
     );
     document.getElementById("seconds").textContent = String(seconds).padStart(
       2,
-      "0"
+      "0",
     );
   }
 
